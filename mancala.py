@@ -97,10 +97,8 @@ def finish_game(board, p1, p2, turn):
         display_board(board, p1, p2, -1)
         if board[6] == board[13]:
             print('Tie game! Good work,', p1, 'and', p2)
-        elif board[6] > board[13]:
-            print('Congratulations,', p1)
         else:
-            print('Congratulations,', p2)
+            print('Congratulations,', p1 if board[6] > board[13] else p2, 'won!')
         return True
     return False
 
