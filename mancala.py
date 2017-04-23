@@ -1,5 +1,4 @@
 import numpy as np
-from time import sleep
 
 def new_board():
     return np.array([4, 4, 4, 4, 4, 4, 0,
@@ -87,4 +86,3 @@ if __name__ == '__main__':
         board, turn = move(board, turn, move_pit)
         print('\n')
         display_board(board, p1, p2, turn)
-        #sleep(2)
