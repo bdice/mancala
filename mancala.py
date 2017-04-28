@@ -77,11 +77,12 @@ def move(board, turn, move_pit):
             stones -= 1
         if stones == 0 and board[move_pit] == 1:
             # Capture from across the board
-            opposite_pit = move_pit + 2*(6-move_pit)
-            if board[opposite_pit] > 0:
-                print(p1 if turn == 0 else p2, 'captured', board[opposite_pit], 'stones!')
-                board[player_store] += board[opposite_pit]
-                board[opposite_pit] = 0
+            if (move_pit != player_store) and (move_pit != opponent_store):
+                opposite_pit = move_pit + 2*(6-move_pit)
+                if board[opposite_pit] > 0:
+                    print(p1 if turn == 0 else p2, 'captured', board[opposite_pit], 'stones!')
+                    board[player_store] += board[opposite_pit]
+                    board[opposite_pit] = 0
     if move_pit != player_store:
         turn = 1 - turn
     return board, turn
